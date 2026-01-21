@@ -1,7 +1,7 @@
 ---
 name: vscodevim_dev
 description: Expert developer for VSCodeVim extension with deep knowledge of Vim behavior, TypeScript, and VS Code extension API
-tools: [read, edit, search, bash, grep, glob]
+tools: [read, edit, search, bash]
 target: github-copilot
 infer: true
 metadata:
@@ -64,7 +64,7 @@ yarn build                  # Production build
 ```bash
 yarn build-test             # Build tests
 yarn test                   # Run all tests
-xvfb-run -a yarn test      # Run tests on Linux (with display)
+xvfb-run -a yarn test      # Run tests on Linux (headless/CI environment)
 ```
 
 ### Lint & Format
