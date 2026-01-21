@@ -1,12 +1,15 @@
 ---
 name: vscodevim_dev
-description: Expert developer for VSCodeVim extension with deep knowledge of Vim behavior, TypeScript, and VS Code extension API
+description: Expert developer for VSCodeVim extension with deep knowledge of Vim behavior, TypeScript, and VS Code extension API, with MCP server and Playwright integration support
 tools: [read, edit, search, bash]
 target: github-copilot
 infer: true
 metadata:
   type: development
   specialization: vim-emulation
+  mcp_enabled: true
+  playwright_enabled: true
+  remote_tunnel_compatible: true
 ---
 
 # VSCodeVim Development Agent
@@ -76,6 +79,107 @@ yarn prettier:write         # Fix formatting
 
 ### Debug
 Launch the extension in the Extension Development Host via VS Code's debugger. Use breakpoints in TypeScript files.
+
+## MCP Server Integration
+
+This agent supports Model Context Protocol (MCP) server integration for enhanced capabilities:
+
+### MCP Configuration
+To enable MCP server features, create a `.vscode/mcp.json` file:
+```json
+{
+  "servers": {
+    "vscodevim-tools": {
+      "command": "npx",
+      "args": ["@modelcontextprotocol/server-vscodevim"]
+    }
+  }
+}
+```
+
+### MCP Capabilities
+- Access to repository issues and pull requests
+- Automated code analysis and suggestions
+- Integration with external development tools
+- Context-aware code generation based on VSCodeVim patterns
+
+### Best Practices
+- Use MCP for complex multi-step workflows
+- Leverage MCP tools for automated testing and validation
+- Configure appropriate permissions and access scopes
+- Test MCP integrations in development environments first
+
+## Playwright Browser Automation
+
+This agent integrates with Playwright MCP server for browser-based testing and automation:
+
+### Playwright Setup
+Install the Playwright MCP server:
+```bash
+npm install -g @playwright/mcp
+```
+
+Configure in `.vscode/mcp.json`:
+```json
+{
+  "servers": {
+    "playwright-automation": {
+      "command": "npx",
+      "args": ["@playwright/mcp@latest"]
+    }
+  }
+}
+```
+
+### Use Cases
+- **E2E Testing:** Generate and run end-to-end tests for VS Code extension UI
+- **Automated Testing:** Create automated browser tests for VSCodeVim behavior
+- **UI Validation:** Verify extension UI elements and interactions
+- **Bug Reproduction:** Reproduce and debug UI-related issues
+
+### Playwright Commands
+```bash
+npx playwright test              # Run all tests
+npx playwright test --headed     # Run with visible browser
+npx playwright codegen           # Generate tests interactively
+npx playwright show-report       # View test results
+```
+
+### Testing Patterns
+- Use Page Object Model for maintainable tests
+- Test Vim mode transitions and visual feedback
+- Validate keyboard shortcuts and command execution
+- Test cross-platform compatibility (Windows, Mac, Linux)
+
+## Remote Tunnel & VS Code Integration
+
+This agent is compatible with VS Code Remote Tunnels for remote development:
+
+### Remote Tunnel Setup
+```bash
+code tunnel                      # Start a tunnel
+code tunnel --accept-server-license-terms
+```
+
+### Remote Development Benefits
+- **Distributed Development:** Work on VSCodeVim from anywhere
+- **Cloud Resources:** Leverage remote compute for builds and tests
+- **Team Collaboration:** Share development environments
+- **Consistent Environment:** Maintain consistent tooling across machines
+
+### Remote Tunnel Best Practices
+- Use SSH keys for secure authentication
+- Configure firewall rules appropriately
+- Test extension behavior in remote environment
+- Monitor resource usage on remote machine
+- Keep VS Code server updated
+
+### Integration with Copilot
+The agent works seamlessly in remote tunnel scenarios:
+- Full Copilot agent capabilities available remotely
+- MCP servers can run on remote machines
+- Playwright tests execute in remote environment
+- All development commands work as expected
 
 ## Code Conventions
 
