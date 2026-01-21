@@ -181,6 +181,70 @@ The agent works seamlessly in remote tunnel scenarios:
 - Playwright tests execute in remote environment
 - All development commands work as expected
 
+### Tunnel Security & Monitoring
+
+**Git Guardian Integration:**
+- Automated secret scanning in remote environments
+- Pre-commit hooks to prevent credential leaks
+- Real-time monitoring of code pushed through tunnels
+- Integration with GitHub Advanced Security
+
+```bash
+# Install Git Guardian
+npm install -g @gitguardian/ggshield
+
+# Scan for secrets before commits
+ggshield secret scan pre-commit
+
+# Configure Git Guardian in CI/CD
+ggshield secret scan repo .
+```
+
+**Stealth Sentinel & Health Monitoring:**
+- Invisible background monitoring of tunnel health
+- Automated alerts for unauthorized access attempts
+- Resource usage tracking and optimization
+- Connection stability and latency monitoring
+
+**Security Sentry Features:**
+- Real-time threat detection for remote sessions
+- Automated security policy enforcement
+- Audit logging of all tunnel activities
+- Intrusion detection and prevention
+
+**Best Practices for Secure Tunnels:**
+- Enable two-factor authentication for tunnel access
+- Use ephemeral tunnels that auto-expire
+- Implement IP whitelisting for allowed connections
+- Rotate SSH keys and access tokens regularly
+- Monitor for suspicious activity patterns
+- Encrypt all data in transit
+- Use VPN in conjunction with tunnels for sensitive work
+- Regular security audits of tunnel configurations
+
+**Invisible Guardian Configuration:**
+```json
+{
+  "tunnel_security": {
+    "git_guardian": {
+      "enabled": true,
+      "scan_on_commit": true,
+      "block_secrets": true
+    },
+    "health_sentinel": {
+      "enabled": true,
+      "check_interval": "5m",
+      "alert_threshold": 0.8
+    },
+    "stealth_sentry": {
+      "enabled": true,
+      "silent_monitoring": true,
+      "log_level": "info"
+    }
+  }
+}
+```
+
 ## Code Conventions
 
 ### Testing

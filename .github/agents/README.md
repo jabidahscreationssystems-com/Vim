@@ -55,7 +55,14 @@ The agent works seamlessly with VS Code Remote Tunnels:
 - Playwright tests execute remotely
 - Consistent development experience
 
-**Setup:** Use `code tunnel` to start a remote development session.
+**Security Features:**
+- **Git Guardian** - Automated secret scanning and prevention
+- **Health Sentinel** - Invisible background monitoring of tunnel health
+- **Stealth Sentry** - Real-time threat detection and security enforcement
+- Automated security auditing and compliance
+- Encrypted connections with multi-factor authentication
+
+**Setup:** Use `code tunnel` to start a remote development session with built-in security monitoring.
 
 ## Configuration
 
@@ -72,4 +79,6 @@ The agent configuration follows GitHub's custom agent specification:
 - [Model Context Protocol (MCP)](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/coding-agent/extend-coding-agent-with-mcp)
 - [Playwright MCP Server](https://www.npmjs.com/package/@playwright/mcp)
 - [VS Code Remote Tunnels](https://code.visualstudio.com/docs/remote/tunnels)
+- [GitGuardian - Secret Scanning](https://www.gitguardian.com/)
+
 
